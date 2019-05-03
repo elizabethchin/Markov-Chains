@@ -4,61 +4,84 @@ from random import choice
 
 
 def open_and_read_file(file_path):
-    """Take file path as string; return text as string.
+	"""Take file path as string; return text as string.
 
-    Takes a string that is a file path, opens the file, and turns
-    the file's contents as one string of text.
-    """
+	Takes a string that is a file path, opens the file, and turns
+	the file's contents as one string of text.
+	"""
 
-    # your code goes here
+	# your code goes here
 
-    open_file = open(file_path)
-    file_as_string = open_file.read()
-    print (file_as_string)
+	open_file = open(file_path)
+	file_as_string = open_file.read()
 
-    return file_as_string
+
+	return file_as_string
 
 
 def make_chains(text_string):
-    """Take input text as string; return dictionary of Markov chains.
+	"""Take input text as string; return dictionary of Markov chains.
 
-    A chain will be a key that consists of a tuple of (word1, word2)
-    and the value would be a list of the word(s) that follow those two
-    words in the input text.
+	A chain will be a key that consists of a tuple of (word1, word2)
+	and the value would be a list of the word(s) that follow those two
+	words in the input text.
 
-    For example:
+	For example:
 
-        >>> chains = make_chains("hi there mary hi there juanita")
+		>>> chains = make_chains("hi there mary hi there juanita")
 
-    Each bigram (except the last) will be a key in chains:
+	Each bigram (except the last) will be a key in chains:
 
-        >>> sorted(chains.keys())
-        [('hi', 'there'), ('mary', 'hi'), ('there', 'mary')]
+		>>> sorted(chains.keys())
+		[('hi', 'there'), ('mary', 'hi'), ('there', 'mary')]
 
-    Each item in chains is a list of all possible following words:
+	Each item in chains is a list of all possible following words:
 
-        >>> chains[('hi', 'there')]
-        ['mary', 'juanita']
-        
-        >>> chains[('there','juanita')]
-        [None]
-    """
+		>>> chains[('hi', 'there')]
+		['mary', 'juanita']
+		
+		>>> chains[('there','juanita')]
+		[None]
+	"""
 
-    chains = {}
+	chains = {}
+	the_list = []
 
-    # your code goes here
 
-    return chains
+	split_list = text_string.split()
+
+#make list of 3rd value
+	# for i in range(len(split_list) - 2):
+	# 	dic_value = split_list[i + 2]
+	# 	the_list.append(dic_value)
+
+	# for i in range(len(split_list) - 1):
+	# 		dic_key = (split_list[i], split_list[i + 1])
+	# 		chains[dic_key] = 
+	# print(chains)
+
+		#chains[dic_key] = []
+		#print(chains)
+
+
+	for i in range(len(split_list) - 2):
+		key = (split_list[i], split_list[i + 1])
+		va =  split_list[i + 2]
+		chains[key] = [va]
+	print(chains)
+
+
+	return chains
 
 
 def make_text(chains):
-    """Return text from chains."""
+	"""Return text from chains."""
 
-    words = []
+	words = []
 
-    # your code goes here
+	# your code goes here
 
-    return " ".join(words)
+	return " ".join(words)
 
 
 input_path = "green-eggs.txt"
