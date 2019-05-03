@@ -51,24 +51,35 @@ def make_chains(text_string):
 	split_list = text_string.split()
 
 #make list of 3rd value
-	# for i in range(len(split_list) - 2):
-	# 	dic_value = split_list[i + 2]
-	# 	the_list.append(dic_value)
+	for i in range(len(split_list) - 2):
+		key = (split_list[i], split_list[i + 1])
+		value = split_list[i + 2]
+		if key not in chains:
+			chains[key] = []
 
+		the_list.append(value)
+#make the keys
 	# for i in range(len(split_list) - 1):
 	# 		dic_key = (split_list[i], split_list[i + 1])
-	# 		chains[dic_key] = 
+	# 		chains[dic_key] = [] 
 	# print(chains)
 
 		#chains[dic_key] = []
 		#print(chains)
 
-
+#makes keys and values
 	for i in range(len(split_list) - 2):
 		key = (split_list[i], split_list[i + 1])
 		va =  split_list[i + 2]
-		chains[key] = [va]
-	print(chains)
+		chains[key] = []
+
+
+
+	    	
+
+
+
+	
 
 
 	return chains
